@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>stillfox — votre alarme Myfox HC2 après le cloud Somfy</title>
+	<meta name="description" content="Somfy arrête myfox.me le 31 mars 2027. stillfox reprend : des écrans familiers, vos données importées, un service hébergé hors du cloud Somfy. Démonstration en vidéo.">
+	<link rel="icon" href="stillfox-mark.svg" type="image/svg+xml">
+	<meta property="og:title" content="stillfox — votre alarme Myfox HC2 après le cloud Somfy">
+	<meta property="og:description" content="Démonstration en vidéo du site qui prend le relais de myfox.me.">
+	<meta property="og:image" content="affiche.jpg">
+	<style>
+		:root {
+			--orange: #F07425;
+			--orange-dark: #C4501A;
+			--peach: #FFD9BC;
+			--ink: #23262B;
+			--bg: #f6f4f1;
+			--card: #ffffff;
+			--text: #23262B;
+			--muted: #5d636c;
+			--line: #e4e0da;
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--bg: #17191c;
+				--card: #202328;
+				--text: #eceae7;
+				--muted: #a8adb4;
+				--line: #33373d;
+			}
+		}
+		* { box-sizing: border-box; }
+		body {
+			margin: 0;
+			background: var(--bg);
+			color: var(--text);
+			font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+		}
+		a { color: var(--orange); }
+		.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+		header.hero {
+			background: radial-gradient(ellipse at 25% 0%, #3a3e45 0%, var(--ink) 55%, #181a1e 100%);
+			color: #fff;
+			padding: 36px 0 120px;
+		}
+		.hero .logo { height: 52px; display: block; }
+		.hero h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.15; margin: 48px 0 16px; font-weight: 650; max-width: 18em; }
+		.hero p { font-size: clamp(17px, 2.2vw, 20px); color: #d9dbde; max-width: 40em; margin: 0; }
+		.hero .date { color: var(--peach); font-weight: 600; }
+
+		.video {
+			margin-top: -88px;
+			background: #000;
+			border-radius: 14px;
+			overflow: hidden;
+			box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
+			aspect-ratio: 16 / 9;
+		}
+		.video video { width: 100%; height: 100%; display: block; }
+		.caption { color: var(--muted); font-size: 15px; margin: 12px 2px 0; }
+
+		section { margin: 64px 0; }
+		h2 { font-size: 26px; margin: 0 0 20px; }
+		h2::before { content: ""; display: block; width: 56px; height: 5px; border-radius: 3px; background: var(--orange); margin-bottom: 14px; }
+
+		.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+		.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; }
+		.card h3 { margin: 0 0 8px; font-size: 18px; }
+		.card p { margin: 0; color: var(--muted); font-size: 16px; }
+
+		ul.soon { margin: 0; padding-left: 22px; }
+		ul.soon li { margin: 6px 0; }
+		ul.soon li::marker { color: var(--orange); }
+
+		.calendar { background: var(--ink); color: #fff; border-radius: 14px; padding: 28px 30px; }
+		.calendar h2 { color: #fff; }
+		.calendar ol { margin: 0; padding-left: 22px; }
+		.calendar li { margin: 8px 0; color: #e3e4e6; }
+		.calendar strong { color: var(--peach); }
+
+		footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; padding: 28px 0 40px; margin-top: 72px; }
+		footer p { margin: 6px 0; }
+	</style>
+</head>
+<body>
+	<header class="hero">
+		<div class="wrap">
+			<img class="logo" src="stillfox-logo-on-dark.svg" alt="stillfox">
+			<h1>Votre alarme Myfox HC2, après le cloud Somfy</h1>
+			<p>Somfy arrête le service myfox.me le <span class="date">31 mars 2027</span>. stillfox prend le relais : des écrans
+				familiers, vos données importées depuis myfox.me, un service hébergé hors du cloud Somfy.</p>
+		</div>
+	</header>
+
+	<main class="wrap">
+		<div class="video">
+			<video controls preload="metadata" poster="affiche.jpg" playsinline>
+				<source src="demo-stillfox.mp4" type="video/mp4">
+				Votre navigateur ne lit pas cette vidéo : <a href="demo-stillfox.mp4">téléchargez-la</a>.
+			</video>
+		</div>
+		<p class="caption">Démonstration de 5 minutes, sur des données fictives : aucune vraie alarme n'est touchée.</p>
+
+		<section>
+			<h2>Ce que vous verrez</h2>
+			<div class="grid">
+				<div class="card">
+					<h3>Votre compte</h3>
+					<p>Inscription par e-mail, confirmation, validation par l'administrateur.</p>
+				</div>
+				<div class="card">
+					<h3>L'import depuis myfox.me</h3>
+					<p>Appareils, scénarios, historique et températures récupérés en une fois. Le mot de passe myfox.me n'est jamais conservé.</p>
+				</div>
+				<div class="card">
+					<h3>Le tableau de bord</h3>
+					<p>Armer et désarmer, allumer les prises, suivre les températures en courbe.</p>
+				</div>
+				<div class="card">
+					<h3>La passerelle</h3>
+					<p>Le boîtier qui répond à votre centrale à la place du cloud Somfy, et le journal de leurs échanges en direct.</p>
+				</div>
+				<div class="card">
+					<h3>Mon système</h3>
+					<p>Vos appareils par famille, les renommer, en ajouter, en retirer, recalibrer un capteur.</p>
+				</div>
+				<div class="card">
+					<h3>Alertes et historique</h3>
+					<p>Qui prévenir et comment ; un an d'événements, avec filtres et recherche.</p>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Ce qui arrive ensuite</h2>
+			<ul class="soon">
+				<li>Scénarios : créer, modifier et lancer depuis le site</li>
+				<li>Réglages des appareils : sensibilité, alertes par appareil</li>
+				<li>Groupes d'appareils et caméras</li>
+				<li>L'envoi des alertes par e-mail et notification mobile</li>
+			</ul>
+		</section>
+
+		<section class="calendar">
+			<h2>Avant le 31 mars 2027</h2>
+			<ol>
+				<li><strong>Importez vos données</strong> tant que le service myfox.me répond : après l'arrêt, elles ne seront plus récupérables.</li>
+				<li>Votre centrale passe ensuite par la passerelle stillfox, sans le cloud Somfy.</li>
+				<li>Objectif : que votre alarme continue de fonctionner après l'arrêt du cloud.</li>
+			</ol>
+		</section>
+	</main>
+
+	<footer>
+		<div class="wrap">
+			<p>stillfox est un projet indépendant, en préparation. Il n'est ni affilié ni approuvé par Somfy.</p>
+			<p>Myfox et Somfy sont des marques de leurs propriétaires respectifs, citées ici seulement pour désigner le matériel et le service concernés.</p>
+		</div>
+	</footer>
+</body>
+</html>
