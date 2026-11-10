@@ -2,15 +2,16 @@
 
 **Votre alarme Myfox HC2, après le cloud Somfy.**
 
-Somfy arrête le service myfox.me le **31 mars 2027**. stillfox prend le relais : des écrans familiers, vos données
+Somfy arrête le service myfox.me le **31 mars 2027**. stillfox prend le relais : une interface claire et moderne, vos données
 importées depuis myfox.me, un service hébergé hors du cloud Somfy.
 
 ## Voir la démonstration
 
 👉 **https://ppollet73.github.io/stillfox/**
 
-Une vidéo de 5 minutes, sur des données fictives : création du compte, import depuis myfox.me, tableau de bord
-(armement, prises, températures), passerelle, appareils, alertes et historique.
+Une vidéo de 5 minutes présentant la nouvelle interface, en maquette sur des données fictives : création du compte,
+import depuis myfox.me, tableau de bord (armement, températures, prises), appareils, scénarios, alertes, historique,
+journal des trames, passerelle, compte et aide.
 
 ## Ce qui arrive ensuite
 
