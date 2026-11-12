@@ -5,6 +5,15 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+## [0.5.2] - 2026-11-12
+
+### Corrigé
+
+- Connecté avec Google, on peut de nouveau choisir ou changer son mot de passe : une connexion Google de moins de 10 minutes remplace le mot de passe actuel.
+- Administration : les interrupteurs et la suspension d'une application personnelle ne demandent plus de mot de passe après une connexion Google récente ; au-delà, le site invite à se reconnecter avec Google.
+- Interrupteurs : la case reste dans la position choisie au clic.
+- Mes alertes : un contact seul n'occupe plus toute la largeur.
+
 ## [0.5.1] - 2026-11-12
 
 ### Ajouté
