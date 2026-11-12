@@ -215,41 +215,24 @@ Caddy ne démarre qu'avec les deux autres conteneurs (`docker compose up -d`, é
 `docker compose logs caddy | grep -i certificate` doit montrer « certificate obtained successfully » pour chacun des
 deux noms, puis `https://exemple.fr` s'ouvre avec un cadenas.
 
-### Adresse réelle du visiteur (facultatif)
+### Adresse réelle du visiteur (obligatoire derrière un proxy inverse)
 
-Seul un pair déclaré a le droit d'annoncer l'adresse de son visiteur (adresses seules, pas de réseau), et par défaut
-personne ne l'est : `HC2_TRUSTED_PROXIES` (le proxy, pour le site) et `MYFOX_API_TRUSTED_PEERS` (le conteneur du site,
-pour l'API) sont vides. Conséquences pour une installation à un seul foyer, acceptables : tous les visiteurs apparaissent
-avec la même adresse (les compteurs d'échecs de connexion et d'inscription sont partagés) et l'import lancé depuis le
-site (« Importer depuis myfox.me ») est refusé ; l'import en ligne de commande de l'étape 7 n'est pas concerné.
-Attention : sans pair de confiance, tous les visiteurs ont la même adresse aux yeux du serveur, donc un seul visiteur qui
-multiplie les échecs de connexion peut bloquer les connexions de tous. Tant que vous n'avez pas déclaré de pair de confiance,
-faites le filtrage par adresse dans le proxy (n'admettre que les adresses qui doivent accéder au site, voir plus haut).
+Seul un pair déclaré a le droit d'annoncer l'adresse de son visiteur (adresses seules, pas de réseau). Le
+`docker-compose.yml` joint fixe le sous-réseau de son réseau interne (section `networks`, champs `subnet` et `gateway`)
+et l'adresse du site (champ `ipv4_address` du service `site`), puis déclare cette adresse par défaut dans
+`MYFOX_API_TRUSTED_PEERS` : l'API fait donc confiance au site sans réglage de votre part. Si ce sous-réseau est déjà
+pris sur votre machine, changez-le dans le fichier, avec les adresses qui en dépendent.
 
-
-Pour lever ces limites, il faut des adresses connues : donnez au réseau du compose un sous-réseau et au site une
-adresse fixe dans un fichier `docker-compose.override.yml` de votre choix (adresses d'exemple dans une plage réservée à la documentation : remplacez-les par un sous-réseau privé libre de votre machine), placez le proxy
-sur ce réseau avec sa propre adresse fixe, puis renseignez les deux variables dans `.env`.
-
-```yaml
-services:
-  site:
-    networks:
-      default:
-        ipv4_address: 198.51.100.3
-networks:
-  default:
-    ipam:
-      config:
-        - subnet: 198.51.100.0/24
-```
-
-Avec le proxy à `198.51.100.10` : `HC2_TRUSTED_PROXIES=198.51.100.10` et `MYFOX_API_TRUSTED_PEERS=198.51.100.3,198.51.100.10`
-(la seconde adresse seulement si le bloc de l'API de votre proxy envoie lui-même l'adresse du visiteur, comme
-l'exemple ci-dessus). Dans ce même fichier, le service `caddy` remplace alors `network_mode: host` par
-`ports: ["80:80", "443:443"]` et une adresse fixe sur le réseau `default` (`ipv4_address: 198.51.100.10`), et le
-`Caddyfile` joint `site:8383` et `serveur:8480` par leur nom au lieu de `127.0.0.1`. Option avancée : le reste du guide
-ne la suppose pas.
+**`HC2_TRUSTED_PROXIES` est en revanche obligatoire dès qu'un proxy inverse (Caddy, section 6) est devant le site.**
+Laissée vide, tous les visiteurs apparaissent avec l'adresse du proxy : un seul visiteur qui multiplie les échecs de
+connexion ou d'inscription bloque alors tout le monde. Avec le Caddy de la section 6 (`network_mode: host`), le site et
+l'API voient la passerelle du réseau du compose (champ `gateway`) : dans `.env`, mettez cette adresse dans
+`HC2_TRUSTED_PROXIES`, et `MYFOX_API_TRUSTED_PEERS=<adresse du site>,<adresse de la passerelle>` (le site, puis le proxy
+pour le bloc de l'API, qui envoie lui-même l'adresse du visiteur). Contrôle : après quelques connexions de deux appareils
+différents, les journaux du site doivent montrer deux adresses distinctes, pas celle de la passerelle.
+Si votre proxy a une autre adresse (Caddy sur le réseau du compose avec une adresse fixe, par exemple), déclarez celle-là.
+Sans proxy inverse (essai en local), ne renseignez rien. L'import lancé depuis le site (« Importer depuis myfox.me »)
+n'est accepté que d'un pair déclaré ; l'import en ligne de commande de l'étape 7 n'est pas concerné.
 
 ## 7. Premier démarrage et import de vos données
 

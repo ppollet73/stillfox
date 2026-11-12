@@ -5,6 +5,34 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+## [0.5.1] - 2026-11-12
+
+### Ajouté
+
+- Applications personnelles : chaque compte peut créer sa propre application pour ses scripts, avec un identifiant et un secret (montré une seule fois, renouvelable). L'administrateur peut suspendre ou réactiver une application.
+- Portail développeur sur le site (`/developpeur`) : introduction, authentification, documentation interactive de l'API, gestion de son application et conditions d'utilisation.
+- Administration : onglet « Applications personnelles » et onglet « Interrupteurs » avec un huitième interrupteur, « Nouveaux appareils », qui autorise l'apprentissage de badges, de télécommandes et de touches tactiles (coupé par défaut).
+- Journal des trames : une bulle « En clair » traduit chaque trame, avec le nom de l'appareil concerné.
+- Contacts d'alerte : fiche de chaque contact avec toutes ses alertes à cocher, ajout et retrait de contacts (4 au plus). Le titulaire reste le contact par défaut et le dernier contact ne peut pas être retiré.
+- Perte de l'alimentation secteur de la centrale, rétablissement et redémarrage : alerte et ligne d'historique (détection encore à confirmer sur une installation réelle).
+- Une ligne d'historique signale un appareil qui n'est plus à portée radio de la centrale.
+- Icônes plus explicites : libellés visibles dans l'en-tête, pastilles « Internet », « Secteur » et « Diagnostic » de la centrale.
+- Retour plus rapide vers Somfy après une panne : nouvel essai dès 1 minute.
+- Mise à l'heure de la centrale suspendue quand l'horloge de la machine paraît fausse.
+
+### Corrigé
+
+- « Gérer mes contacts » s'affiche de nouveau.
+- Un compte relié à Google garde son mot de passe pour ses applications personnelles ; un rappel figure sur la page de connexion.
+- Le bouton « Continuer avec Google » ouvre bien la connexion et a la taille du bouton « Connexion ».
+- Les applications autorisées de « Mon compte » ont un nom.
+- Installation : l'adresse publique mal formée ou en `http` est refusée, et l'inscription par e-mail ou Google n'est plus proposée tant que l'installation est ouverte.
+- Apprentissage de badges, de télécommandes et d'IntelliTAG : il est refusé tant que « Nouveaux appareils » est coupé, et une séance est toujours refermée.
+- La courbe d'un appareil ouvre le même graphique que l'accueil ; « Reconnaître mes appareils » montre la vignette de chaque appareil.
+- La règle « 12 caractères au moins » du mot de passe passe au vert quand elle est remplie ; les interrupteurs des réglages d'appareil et le bouton du relais se lisent plus facilement.
+- Libellé « Perte signal radio » au lieu de « Perdu par radio ».
+- L'ancien portail développeur du serveur renvoie vers le nouveau.
+
 ## [0.5.0] - 2026-11-11
 
 ### Ajouté
