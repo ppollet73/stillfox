@@ -5,6 +5,14 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+## [0.5.4] - 2026-11-13
+
+### Ajouté
+
+- Administration › Centrales en attente : un administrateur ouvre pour 24 heures l'adresse d'où une nouvelle centrale doit se connecter, voit la centrale qui s'y présente, l'écarte ou la rattache à un site.
+- Administration › Journaux : un journal des actions des administrateurs et un journal technique (lignes des services, suivi en direct, téléchargement), à côté du journal des envois.
+- Importer depuis myfox.me : le titulaire enregistre l'application Somfy de son propre compte myfox.me (guide, remplacement, suppression) ; un refus de l'application est dit à part d'un refus du mot de passe.
+
 ## [0.5.3] - 2026-11-13
 
 ### Ajouté

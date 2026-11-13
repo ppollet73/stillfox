@@ -33,7 +33,10 @@ adresse, et refuse de démarrer tant que les variables obligatoires de votre `.e
   possible de les récupérer.**
 - **Vos propres identifiants de client de l'API Myfox** (`MYFOX_CLIENT_ID` et `MYFOX_CLIENT_SECRET`), obtenus sur le
   portail développeur de myfox.me, tant qu'il existe. Chaque installateur utilise les siens : ceux du projet ne sont jamais
-  publiés. Ils ne servent qu'à l'import initial (étape 7) ; vous ne les écrivez pas dans `.env`.
+  publiés. Ils ne servent qu'à l'import (étape 7, puis « Importer depuis myfox.me » sur le site) ; vous ne les écrivez pas dans `.env`.
+  Somfy n'accepte une application personnelle qu'avec le compte myfox.me de son créateur : créez la vôtre avec le compte
+  dont vous importez les données (une application par compte, créée d'un clic sur le portail : « Client ID », « Client Secret »,
+  « Status : Active »). Somfy la désactive sans préavis si elle demande trop de jetons : un import n'en demande qu'un.
 - Facultatif : un relais SMTP (inscription et mot de passe oublié par e-mail), un compte Pushover (notifications mobiles).
 
 ## 2. Arborescence
@@ -303,7 +306,7 @@ docker compose ps        # serveur et site doivent devenir « healthy » (une mi
    contrôler depuis le serveur : `curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8480/v2/signup` répond 200
    (l'API) et `curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8480/v2/openapi.yaml` répond 401 sans jeton.
    Plus tard, « Mon compte > Paramètres avancés > Importer depuis myfox.me » relance l'import depuis le site (il demande
-   alors le réglage « Application Somfy » de l'Administration : vos propres identifiants de client, ceux du prérequis) : chaque passage s'ajoute au précédent, sans rien remplacer.
+   alors l'application Somfy **de votre foyer** : vos propres identifiants de client, ceux du prérequis, saisis par le titulaire dans l'étape « Votre application Somfy » ; le secret n'est jamais réaffiché, et il n'entre pas dans la sauvegarde du foyer, donc à ressaisir après une restauration. Sans application de foyer, l'application du serveur (réglage « Application Somfy » de l'Administration) sert seulement un foyer qui compte un administrateur actif) : chaque passage s'ajoute au précédent, sans rien remplacer.
    Dernier passage possible : avant le 31 mars 2027.
 
 Pour l'envoi des e-mails (inscription, mot de passe oublié, alertes) et des notifications mobiles, ouvrez l'onglet
