@@ -5,6 +5,20 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+## [0.5.3] - 2026-11-13
+
+### Ajouté
+
+- Un contact d'alerte peut recevoir un accès au site (« Alarme seule » ou « Administrateur du foyer ») ; il en est invité par courriel et accepte ou refuse l'invitation depuis une page dédiée. Un compte voit alors les sites de plusieurs foyers.
+- Mon compte : l'application personnelle figure dans « Applications autorisées » et se révoque depuis cette carte.
+- Administration › Comptes : fermer les sessions d'un compte, le bloquer et le débloquer.
+
+### Corrigé
+
+- Plusieurs centrales peuvent partager une même adresse publique au sein d'un seul foyer, sur réglage de l'administrateur.
+- Administration › Comptes : « Refuser » n'apparaît plus que pour un compte en attente.
+- Une décision d'administrateur sur un rattachement ne fait plus échouer la sauvegarde du foyer.
+
 ## [0.5.2] - 2026-11-12
 
 ### Corrigé
