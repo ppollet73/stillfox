@@ -5,6 +5,17 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+## [0.5.5] - 2026-11-13
+
+### Ajouté
+
+- Menu : entrée « Invitations » avec le nombre d'invitations en attente.
+
+### Corrigé
+
+- Importer depuis myfox.me : l'écran n'affiche plus « 500 Internal Error » après l'enregistrement de l'application Somfy du foyer.
+- Invitations : page lisible en thème clair ; un compte qui n'a que l'alarme seule sur un autre foyer peut ajouter son propre site ; « Plus tard » sans site mène à la page d'un compte sans site.
+
 ## [0.5.4] - 2026-11-13
 
 ### Ajouté
