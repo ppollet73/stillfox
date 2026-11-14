@@ -5,6 +5,12 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotatio
 
 ## [Non publié]
 
+## [0.5.6] - 2026-11-14
+
+### Corrigé
+
+- Importer depuis myfox.me : un paquet qui contient des listes que stillfox ne sait pas encore reprendre (états, luminosité des capteurs, détecteurs de fumée et autres appareils, images, vidéos) n'arrête plus l'import. Le reste est importé, et l'écran dit ce qui n'a pas été repris. En cas d'échec, l'écran dit à quelle étape.
+
 ## [0.5.5] - 2026-11-13
 
 ### Ajouté
