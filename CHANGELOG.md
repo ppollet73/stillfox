@@ -3,7 +3,75 @@
 Ce journal ne liste que les nouveautés et corrections visibles par un foyer ou un administrateur de stillfox.
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) ; numérotation : [SemVer](https://semver.org/lang/fr/).
 
+**Gestes à faire avant une mise à jour.** Quand une version demande un geste à la main (une modification du `Caddyfile`, d'un
+fichier `docker-compose.override.yml`…), sa section porte, avant « Ajouté » et « Corrigé », un titre de niveau 3 qui s'écrit
+exactement `### À faire avant la mise à jour`, suivi d'une liste d'actions, une par ligne. `stillfox.sh mettre-a-jour` lit
+les sections des versions comprises entre celle en service (exclue) et celle visée (incluse) : s'il y trouve ce titre, il
+affiche les notes et s'arrête sans rien couper, jusqu'à ce qu'on le relance avec `--gestes-faits`. Exemple, à ne pas recopier
+tel quel : un titre `## [0.9.0] - date`, puis `### À faire avant la mise à jour` et `- Ajoutez telle ligne au Caddyfile.`
+
 ## [Non publié]
+
+## [0.6.0] - 2026-11-19
+
+Cette version rend l'import depuis myfox.me plus complet et plus lisible, ajoute l'appairage d'un téléphone, les badges et le chauffage, enrichit les alertes et l'administration, et facilite l'installation locale.
+
+### Ajouté
+
+**Import depuis myfox.me**
+
+- L'import montre sa progression (barre, pourcentage, étape en clair) et explique, par cause, les éléments qu'il n'a pas pu reprendre.
+- Chaque import garde son récapitulatif ; « Mes paquets » permet de rejouer un import sans retaper le mot de passe, de télécharger, de consulter le récapitulatif ou de supprimer un paquet.
+- Les capteurs de température et de luminosité et les détecteurs de fumée sont repris et s'affichent dans « Mon système ».
+- Les scénarios importés se rouvrent dans l'assistant avec tous leurs paramètres ; le titulaire confirme le contenu avant de les modifier.
+- « Reconnaître plusieurs appareils d'un coup » et l'écoute d'une prise DIO aident à retrouver le numéro de chaque appareil. La reconnaissance en lot écrit sur votre compte myfox.me : elle reste coupée tant qu'un administrateur n'a pas allumé l'interrupteur « Écritures sur myfox.me ».
+- Après un import, l'écran enchaîne sur le rattachement de la centrale et rappelle de le faire tant qu'il n'est pas fait.
+- Un bloc d'aide explique comment envoyer la centrale vers stillfox (redirection DNS par la box, Pi-hole, AdGuard Home, NextDNS, NAS Synology, OpenWrt, pfSense ou OPNsense).
+- Un refus d'identifiants dit de quel côté il vient (API Somfy ou site myfox.me).
+
+**Téléphone et badges**
+
+- Un téléphone s'associe depuis « Mon compte » par un QR code ou un code à saisir (cinq téléphones au plus par compte) ; la liste des téléphones permet de les révoquer.
+- Écran « Badges » : lecteurs, badges appris et nom de chaque badge ; le journal des alertes dit qui a changé le niveau (badge, télécommande, scénario, compte).
+
+**Chauffage**
+
+- Assistant d'ajout du module chauffage et du capteur de température et luminosité (TA 4007), avec le choix « Chaudière » ou « Radiateur avec fil pilote » ; la luminosité du capteur est lisible.
+
+**Alertes et journaux**
+
+- Dix contacts d'alerte par site au lieu de quatre.
+- Nouvelles alertes : appui sur le 4e bouton de la télécommande (détresse), redémarrage de la centrale ; le texte d'un changement de niveau dit qui l'a fait.
+- Le plafond d'alertes se règle par foyer (1 à 20 alertes sur 60 à 3 600 secondes).
+- Le journal des trames est plus complet et mieux traduit, avec un interrupteur pour le couper.
+- Une carte « Webhook (Home Assistant) » dans « Mes alertes » envoie chaque alerte à l'adresse de votre choix.
+
+**Administration**
+
+- Les comptes affichent leur foyer et leur dernière connexion, avec tri et recherche.
+- Ajout d'une adresse du pare-feu des centrales à la main, et « Recharger la passerelle » sans redémarrage.
+- Les actions sensibles (suppression d'un compte, détachement d'une centrale, pare-feu) demandent une confirmation récente par mot de passe ou connexion Google.
+- Le titulaire peut renommer et supprimer ses sites ; un administrateur peut détacher la centrale d'un site.
+
+**Installation locale**
+
+- Installation publique à vide : plus de fichier de variables à écrire, un code d'installation lu dans le journal du serveur, et le script `stillfox.sh` pour installer, mettre à jour et revenir en arrière.
+- En mode local, la centrale du réseau local n'est plus refusée et l'adresse IP publique est facultative (elle reste exigée en mode serveur).
+
+**Autres**
+
+- Pastille « Passerelle » à l'accueil, icônes de thème et de déconnexion en bas du menu, menu en tiroir sur téléphone, champ « Pièce » dans la fiche d'un appareil, entrée « Invitations » au menu, page Aide présentant toutes les versions.
+
+### Corrigé
+
+- Rattachement d'une centrale : les libellés SN1 (8 chiffres de l'étiquette) et SN2 (adresse MAC) étaient inversés.
+- Alertes et historique du secteur : le sens « secteur présent » et « marche sur batterie » était inversé.
+- Importer depuis myfox.me : une phrase inconnue du diagnostic ou un site refusé par myfox.me n'arrête plus l'import ; le type d'un scénario importé s'affiche correctement.
+- « Mon système » montre de nouveau la centrale.
+- La page Aide s'ouvre pour tout compte connecté, même sans site.
+- La page des invitations est lisible en thème clair, et un compte invité en « alarme seule » peut créer son propre site.
+- Une prise DIO n'est plus indiquée à tort comme exclue de l'assistant.
+- La suppression d'un site n'échoue plus quand un membre d'un autre foyer figure dans son historique.
 
 ## [0.5.6] - 2026-11-14
 
