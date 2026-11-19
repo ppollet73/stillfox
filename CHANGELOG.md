@@ -12,6 +12,18 @@ tel quel : un titre `## [0.9.0] - date`, puis `### À faire avant la mise à jou
 
 ## [Non publié]
 
+## [0.6.1] - 2026-11-19
+
+Cette version corrige plusieurs défauts d'affichage de la 0.6.0.
+
+### Corrigé
+
+- Journal des trames : la colonne « Date » affiche le jour et l'heure, et non plus l'heure seule.
+- « Mes sites » : la suppression d'un site est une icône poubelle à côté de « Accéder au site ».
+- « Mes scénarios » : « Modifier », « Supprimer » et « Réécrire » sont des icônes avec infobulle ; l'infobulle de « Réécrire » explique le terme.
+- Le bandeau de gauche n'affiche plus d'ascenseur horizontal.
+- Les infobulles des icônes ne s'affichent plus en barre noire écrasée après un passage par l'Accueil ou « Mon système » ; les textes longs passent à la ligne.
+
 ## [0.6.0] - 2026-11-19
 
 Cette version rend l'import depuis myfox.me plus complet et plus lisible, ajoute l'appairage d'un téléphone, les badges et le chauffage, enrichit les alertes et l'administration, et facilite l'installation locale.
