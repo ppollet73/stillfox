@@ -12,6 +12,30 @@ tel quel : un titre `## [0.9.0] - date`, puis `### À faire avant la mise à jou
 
 ## [Non publié]
 
+## [0.6.2] - 2026-11-20
+
+Cette version refond la page d'administration, permet de déplacer les centrales entre sites et facilite l'import des comptes à plusieurs sites.
+
+### Administration
+
+- Une « Vue d'ensemble » à l'arrivée : compteurs, éléments à traiter, limites du serveur et dernières actions.
+- Un menu groupé (Personnes, Centrales, Applications, Serveur) et des fiches qui s'ouvrent en feuille.
+- Un pare-feu en une seule liste, avec l'écart entre ce qui est en base et ce qui est appliqué.
+- Centrales rattachées : déplacer une centrale vers un autre site, échanger celles de deux sites, changer l'adresse de la maison, détacher une centrale.
+
+### Import depuis myfox.me
+
+- Pour un compte à plusieurs sites, un rattachement de centrale est proposé pour chaque site, l'un après l'autre, avec un bilan à la fin.
+
+### Scénarios
+
+- Un scénario repris de myfox.me porte la pastille « À confirmer » ; l'activer ouvre la confirmation, puis il est activé.
+
+### Corrigé
+
+- « Mes sites » : le champ de renommage prend toute la largeur de la carte.
+- L'alerte « retour de la centrale » n'est plus envoyée à tort après un changement de centrale.
+
 ## [0.6.1] - 2026-11-19
 
 Cette version corrige plusieurs défauts d'affichage de la 0.6.0.
