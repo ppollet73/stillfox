@@ -12,6 +12,48 @@ tel quel : un titre `## [0.9.0] - date`, puis `### À faire avant la mise à jou
 
 ## [Non publié]
 
+## [0.6.3] - 2026-11-24
+
+Cette version améliore le rattachement des centrales, la reprise de vos scénarios depuis myfox.me et les courriels d'alerte, et corrige l'installation locale et l'installation sur un dossier vide.
+
+### Administration
+
+- Une rubrique « Demandes » où l'administrateur approuve ou refuse les demandes de rattachement de centrale, avec une confirmation avant d'ouvrir l'accès.
+- « Lier à un foyer » devient un assistant en trois étapes, avec l'identité de la centrale visible à chaque étape.
+- Deux foyers peuvent partager la même adresse publique, si l'administrateur l'a inscrite sur les deux.
+- Les refus de rattachement disent la cause. Le mode du site (local ou relais) n'empêche plus de demander ou de lier une centrale.
+- « Notifications des foyers » : un foyer à plusieurs sites tient sur une ligne et se déplie.
+
+### Import depuis myfox.me
+
+- Une case propose d'enregistrer vos scénarios sur myfox.me pour que la centrale les transmette ; l'état de la reprise s'affiche par site à la fin de l'import.
+- Si le serveur refuse provisoirement le rattachement d'un site, l'import passe au suivant et le bilan l'indique.
+
+### Scénarios
+
+- Dans « Mes scénarios », reprise des scénarios depuis myfox.me, pour tous ou un par un. Un scénario sans contenu connu porte la pastille « À reprendre ».
+- Un scénario importé sans emplacement connu peut maintenant être repris.
+- Le seuil d'un scénario de température sur un capteur TA 4007 est correct (25 °C ne déclenche plus immédiatement) ; le niveau de luminosité s'affiche par son nom.
+
+### Alertes
+
+- Les courriels d'alerte existent aussi en version HTML, aux couleurs de l'urgence, et l'objet porte le nom du site. Les rappels de pile faible et les centrales hors ligne ou revenues partent aussi en HTML.
+
+### Interface
+
+- Les boutons texte deviennent des icônes avec infobulle (Accueil, prises et groupes, historique, médiathèque, import…) ; une infobulle explique environ 80 boutons.
+- « Mes sites » : le nom du site mène à son tableau de bord et le fuseau horaire s'enregistre dès qu'on le choisit.
+- « Reconnaître plusieurs » : un seul bouton en haut de la page.
+- La redirection DNS donne le nom et l'adresse IP du serveur stillfox, déduits de l'adresse par laquelle vous l'ouvrez.
+
+### Corrigé
+
+- Installation locale : l'import d'un compte myfox.me n'était plus refusé à tout le monde ; l'installation écrit ce qu'il faut et la mise à jour le fait pour une installation existante.
+- Installation sur un dossier de secrets vide, impossible depuis la 0.5.0 : le serveur démarre désormais.
+- Un site créé localement n'affiche plus « opération pas encore servie » dans « Mes alertes ».
+- « Mes scénarios » : la confirmation d'un scénario repris nomme les risques et la sirène, et l'interface ne reste plus bloquée pendant un autre ordre.
+- « Mes sites » : le message « Fuseau horaire enregistré. » reste affiché.
+
 ## [0.6.2] - 2026-11-20
 
 Cette version refond la page d'administration, permet de déplacer les centrales entre sites et facilite l'import des comptes à plusieurs sites.
