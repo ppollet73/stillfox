@@ -12,6 +12,17 @@ tel quel : un titre `## [0.9.0] - date`, puis `### À faire avant la mise à jou
 
 ## [Non publié]
 
+## [0.6.5] - 2026-11-25
+
+Cette version corrige l'affichage de la centrale après un rattachement et complète l'aide sur la redirection DNS.
+
+### Corrigé
+
+- Après le rattachement d'une centrale à un site neuf, « Mon système » montre la centrale (elle ne s'affiche plus avec 0 appareil) et les voyants Internet, alimentation et diagnostic sont renseignés au lieu de « Indisponible ». Les sites déjà rattachés sont réparés au démarrage.
+- L'encart « Demande approuvée » disparaît dès que le site liste un appareil.
+- Aide : nouvelle question « Rediriger ma centrale vers stillfox (DNS) », avec un lien vers « Ajouter une centrale ».
+- Redirection DNS : cas des box SFR dans le guide (d'après des utilisateurs de ces box, pas encore essayé avec une centrale).
+
 ## [0.6.3] - 2026-11-24
 
 Cette version améliore le rattachement des centrales, la reprise de vos scénarios depuis myfox.me et les courriels d'alerte, et corrige l'installation locale et l'installation sur un dossier vide.

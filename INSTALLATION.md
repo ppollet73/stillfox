@@ -451,6 +451,14 @@ Le site vous guide pas à pas : l'écran d'import et « Ajouter un site » affic
 - **Box ou routeur** : certains ont un réglage « DNS local », « hôtes statiques » ou « noms d'hôtes ». S'il existe, ajoutez-y
   les deux noms avec l'adresse du serveur. Beaucoup de box d'opérateur ne le proposent pas : prenez alors l'une des autres
   manières, sur un appareil de votre réseau qui reste allumé.
+- **Box SFR** (d'après des utilisateurs de ces box ; pas encore essayé avec une centrale) : ouvrez l'interface de la box dans un navigateur (son adresse est indiquée sous la box).
+  Box 8 : « LAN Réseau local », « DNS Local », « Créer une règle » (IPv4). NB6 et Box 7 : rubrique « DNS local »
+  (page `/network/dns` de l'interface), champs « Adresse IP » et « Nom d'hôte ». Créez une règle par nom, avec l'adresse du
+  serveur. Rechargez ensuite la page : si un nom est coupé au premier point (`core` au lieu de `core.steadyfox.com`), le
+  logiciel de la box a un défaut connu (versions `3GN8020800R15` et `3ENT010200R01B` de la Box 8, corrigé en
+  `3GN8020802R06`) et la règle est sans effet : prenez l'une des autres manières. Laissez vides les champs « DNS primaire »
+  et « DNS secondaire » de la box (Box 8 : « LAN Réseau local », « Caractéristiques »), sinon la centrale n'interroge pas la
+  box.
 - **Pi-hole** : administration, page « Local DNS Records » (version 5 : Local DNS, DNS Records) ; ajoutez les deux noms avec
   l'adresse du serveur.
 - **AdGuard Home** : menu Filtres, Réécritures DNS (DNS rewrites) ; une réécriture pour chacun des deux noms, vers l'adresse
